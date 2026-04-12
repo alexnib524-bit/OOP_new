@@ -1,0 +1,39 @@
+from abc import ABC, abstractmethod
+
+# Абстрактный класс Car (общий интерфейс для всех типов автомобилей)
+class Car(ABC):
+    @abstractmethod
+    def drive(self) -> str:
+        pass
+
+# Конкретные классы для каждого типа автомобилей
+class ElectricCar(Car):
+    def drive(self) -> str:
+        return "Driving an electric car."
+
+class PetrolCar(Car):
+    def drive(self) -> str:
+        return "Driving a petrol car."
+
+class HybridCar(Car):
+    def drive(self) -> str:
+        return "Driving a hybrid car."
+
+# Абстрактная фабрика CarFactory
+class CarFactory(ABC):
+    @abstractmethod
+    def produce_car(self) -> Car:
+        pass
+
+# Конкретные реализации абстрактной фабрики
+class ElectricCarFactory(CarFactory):
+    def produce_car(self) -> Car:
+        return ElectricCar()
+
+class PetrolCarFactory(CarFactory):
+    def produce_car(self) -> Car:
+        return PetrolCar()
+
+class HybridCarFactory(CarFactory):
+    def produce_car(self) -> Car:
+        return HybridCar()
