@@ -2,7 +2,7 @@ from typing import List, Dict, Optional
 
 
 class Resume:
-    """Класс резюме, создаваемый через строителя"""
+    "Класс резюме, создаваемый через строителя"
     def __init__(
         self,
         name: str,
@@ -52,7 +52,7 @@ class Resume:
 
 
 class ResumeBuilder:
-    """Строитель для пошагового создания резюме"""
+    "Строитель для пошагового создания резюме"
     def __init__(self):
         self.reset()
     
@@ -102,7 +102,7 @@ class ResumeBuilder:
         return self
     
     def build(self) -> Resume:
-        """Возвращает готовый объект Resume"""
+        "Возвращает готовый объект Resume"
         return Resume(
             name=self._name,
             email=self._email,
@@ -117,7 +117,7 @@ class ResumeBuilder:
 
 
 class ResumeDirector:
-    """Директор для создания стандартных конфигураций резюме"""
+    "Директор для создания стандартных конфигураций резюме"
     
     @staticmethod
     def build_standard_resume(builder: ResumeBuilder, name: str, email: str) -> Resume:
@@ -143,7 +143,7 @@ class ResumeDirector:
         degree: str,
         school: str
     ) -> Resume:
-        """Расширенное резюме: имя, контакты, опыт, образование, навыки, языки, сертификаты"""
+        "Расширенное резюме: имя, контакты, опыт, образование, навыки, языки, сертификаты"
         return (builder
             .reset()
             .set_name(name)
